@@ -21,12 +21,20 @@ public:
         }
     }
 
-    void Claim(int space, bool firstPlayer)
+    void Claim(int column, bool firstPlayer)
     {
-        int col = space%7;
-        int row = space/7;
+        int row = 0;
 
-        spaces[row][col] = firstPlayer? 'x' : 'o';
+        for (int i = 5; i > 0; --i)
+        {
+            if (' ' == spaces[i][column])
+            {
+                row = i;
+                break;
+            }
+        }
+
+        spaces[row][column] = firstPlayer? 'x' : 'o';
 
         CheckBoardFull ();
         CheckGameWon ();
@@ -53,10 +61,6 @@ public:
 
             cout << endl;
         }
-
-        // Ask player for move (1-9).
-        cout << endl;
-        cout << "Select a space (numbered left-to-right, top-to-bottom 1-42):  \b";
     }
 
     bool IsGameOver () const
@@ -84,8 +88,8 @@ private:
     {
         int p1spots [21];
         int p2spots [21];
-        int p1i;
-        int p2i;
+        int p1i = 0;
+        int p2i = 0;
 
         for (int i = 0; i < 6; ++i)
         {
@@ -183,10 +187,10 @@ private:
             {35,36,37,38},
             {36,37,38,39},
             {37,38,39,40},
-            {38,39,40,41},
+            {38,39,40,41}
         };
 
-        if (2 < p1i)
+        if (3 < p1i)
         {
             for (int i = 0; i < 69; ++i)
             {
@@ -211,7 +215,7 @@ private:
             }
         }
 
-        if (2 < p2i)
+        if (3 < p2i)
         {
             for (int i = 0; i < 69; ++i)
             {
@@ -253,11 +257,15 @@ int main ()
     // While game is not over.
     while (!theBoard.IsGameOver ())
     {
+        // Ask player for move (1-9).
+        cout << endl;
+        cout << "Select a slot (numbered left-to-right, 1-7): ";
+
         string selected;
         getline(cin, selected);
         cout << "\b\r";
 
-        cout << "Select a space (numbered left-to-right, top-to-bottom 1-42): ";
+        cout << "Select a slot (numbered left-to-right, 1-7): ";
 
         for (int i = 0; i < selected.length () + 1; ++i)
         {
@@ -268,172 +276,32 @@ int main ()
 
         if ("1" == selected)
         {
-		    selectedSpace = 0;
-		}
-		else if ("2" == selected)
-		{
-			selectedSpace = 1;
-		}
-		else if ("3" == selected)
-		{
-			selectedSpace = 2;
-		}
-		else if ("4" == selected)
-		{
-			selectedSpace = 3;
-		}
-		else if ("5" == selected)
-		{
-			selectedSpace = 4;
-		}
-		else if ("6" == selected)
-		{
-			selectedSpace = 5;
-		}
-		else if ("7" == selected)
-		{
-			selectedSpace = 6;
-		}
-		else if ("8" == selected)
-		{
-			selectedSpace = 7;
-		}
-		else if ("9" == selected)
-		{
-			selectedSpace = 8;
-		}
-		else if ("10" == selected)
-		{
-			selectedSpace = 9;
-		}
-        else if ("11" == selected)
+            selectedSpace = 0;
+        }
+        else if ("2" == selected)
         {
-		    selectedSpace = 10;
-		}
-		else if ("12" == selected)
-		{
-			selectedSpace = 11;
-		}
-		else if ("13" == selected)
-		{
-			selectedSpace = 12;
-		}
-		else if ("14" == selected)
-		{
-			selectedSpace = 13;
-		}
-		else if ("15" == selected)
-		{
-			selectedSpace = 14;
-		}
-		else if ("16" == selected)
-		{
-			selectedSpace = 15;
-		}
-		else if ("17" == selected)
-		{
-			selectedSpace = 16;
-		}
-		else if ("18" == selected)
-		{
-			selectedSpace = 17;
-		}
-		else if ("19" == selected)
-		{
-			selectedSpace = 18;
-		}
-		else if ("20" == selected)
-		{
-			selectedSpace = 19;
-		}
-        else if ("21" == selected)
+            selectedSpace = 1;
+        }
+        else if ("3" == selected)
         {
-		    selectedSpace = 20;
-		}
-		else if ("22" == selected)
-		{
-			selectedSpace = 21;
-		}
-		else if ("23" == selected)
-		{
-			selectedSpace = 22;
-		}
-		else if ("24" == selected)
-		{
-			selectedSpace = 23;
-		}
-		else if ("25" == selected)
-		{
-			selectedSpace = 24;
-		}
-		else if ("26" == selected)
-		{
-			selectedSpace = 25;
-		}
-		else if ("27" == selected)
-		{
-			selectedSpace = 26;
-		}
-		else if ("28" == selected)
-		{
-			selectedSpace = 27;
-		}
-		else if ("29" == selected)
-		{
-			selectedSpace = 28;
-		}
-		else if ("30" == selected)
-		{
-			selectedSpace = 29;
-		}
-        else if ("31" == selected)
+            selectedSpace = 2;
+        }
+        else if ("4" == selected)
         {
-		    selectedSpace = 30;
-		}
-		else if ("32" == selected)
-		{
-			selectedSpace = 31;
-		}
-		else if ("33" == selected)
-		{
-			selectedSpace = 32;
-		}
-		else if ("34" == selected)
-		{
-			selectedSpace = 33;
-		}
-		else if ("35" == selected)
-		{
-			selectedSpace = 34;
-		}
-		else if ("36" == selected)
-		{
-			selectedSpace = 35;
-		}
-		else if ("37" == selected)
-		{
-			selectedSpace = 36;
-		}
-		else if ("38" == selected)
-		{
-			selectedSpace = 37;
-		}
-		else if ("39" == selected)
-		{
-			selectedSpace = 38;
-		}
-		else if ("40" == selected)
-		{
-			selectedSpace = 39;
-		}
-        else if ("41" == selected)
+            selectedSpace = 3;
+        }
+        else if ("5" == selected)
         {
-		    selectedSpace = 40;
-		}
-		else if ("42" == selected)
-		{
-			selectedSpace = 41;
-		}
+            selectedSpace = 4;
+        }
+        else if ("6" == selected)
+        {
+            selectedSpace = 5;
+        }
+        else if ("7" == selected)
+        {
+            selectedSpace = 6;
+        }
 
         theBoard.Claim(selectedSpace, firstPlayer);
 
@@ -449,4 +317,3 @@ int main ()
 
     cout << endl;
 }
-
