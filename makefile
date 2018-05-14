@@ -1,5 +1,5 @@
-tic.exe :
-	g++ tic.cpp -o tic.exe
+connect.exe :
+	g++ connect.cpp -o connect.exe
 clean :
-	rm -f core tic.exe
+	rm -f core connect.exe
 
