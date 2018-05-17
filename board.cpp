@@ -1,10 +1,8 @@
-#include <iostream>
 #include "board.h"
-using std::cout;
-using std::endl;
 
 Board::Board ()
 {
+    firstPlayer = true;
     gameOver = false;
 
     for (int i = 0; i < Board::height; ++i)
@@ -104,7 +102,7 @@ void Board::CheckGameWon (int row, int col)
     }
 }
 
-void Board::Claim(int column, bool firstPlayer)
+void Board::Claim(int column)
 {
     int row = 0;
 
@@ -118,37 +116,17 @@ void Board::Claim(int column, bool firstPlayer)
     }
 
     spaces[row][column] = firstPlayer? 'x' : 'o';
+    firstPlayer = !firstPlayer;
     CheckGameWon (row, column);
 
     if (!gameOver) {
         CheckBoardFull ();
     }
+
+    Notify("ALL");
 }
 
-void Board::Draw () const
+char Board::GetToken (int row, int col) const
 {
-    for (int i = 0; i < Board::height; ++i)
-    {
-        if (0 != i)
-        {
-            cout << "-";
-            for (int j = 0; j < Board::width-1; ++j)
-            {
-                cout << "+-";
-            }
-            cout << endl;
-        }
-
-        for (int j = 0; j < Board::width; ++j)
-        {
-            if (0 != j)
-            {
-                cout << '|';
-            }
-
-            cout << spaces[i][j];
-        }
-
-        cout << endl;
-    }
+    return spaces[row][col];
 }
