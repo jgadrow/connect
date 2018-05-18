@@ -1,19 +1,18 @@
 #if !defined console_view_h
 #define console_view_h
-#include <iostream>
+#include <string>
 #include "board.h"
-#include "view.h"
 using std::string;
 
-class ConsoleView : public View
+class ConsoleView
 {
 public:
-    ConsoleView (Board & board);
+    ConsoleView (Board const & board);
     void DrawBoard() const;
     string PromptForInput() const;
-    void Update() override;
+    void Update() const;
 private:
-    Board & _board;
+    Board const & _board;
     string mutable _prev;
 };
 

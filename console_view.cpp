@@ -1,10 +1,10 @@
-#include "console_view.h"
 #include <iostream>
+#include "console_view.h"
 using std::cin;
 using std::cout;
 using std::endl;
 
-ConsoleView::ConsoleView (Board & board)
+ConsoleView::ConsoleView (Board const & board)
     : _board (board)
 {
     _prev = "";
@@ -64,7 +64,7 @@ string ConsoleView::PromptForInput() const
     return selected;
 }
 
-void ConsoleView::Update ()
+void ConsoleView::Update () const
 {
     // Reset cursor to start of prompt.
     cout << "\r\b\r";

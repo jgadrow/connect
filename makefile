@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=--std=c++17
-OBJS=console_view.o controller.o board_controller.o board.o connect.o
+OBJS=console_view.o board_controller.o board.o connect.o
 OUT=connect.exe
 .PHONY : clean all
 all : ${OBJS}
@@ -13,8 +13,6 @@ connect.o : connect.cpp
 	${CC} ${CFLAGS} -c connect.cpp
 console_view.o : console_view.cpp
 	${CC} ${CFLAGS} -c console_view.cpp
-controller.o : controller.cpp
-	${CC} ${CFLAGS} -c controller.cpp
 board.o : board.cpp
 	${CC} ${CFLAGS} -c board.cpp
 clean :

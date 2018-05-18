@@ -1,9 +1,12 @@
-#include "board_controller.h"
+#include <functional>
 #include <string>
+#include "board_controller.h"
+using std::bind;
 
 BoardController::BoardController (Board & board, ConsoleView & view)
-    : Controller(board, view), _board (board), _view (view)
+    : _board (board), _view (view)
 {
+    _board.RegisterObserver ("ALL", bind(&ConsoleView::Update, & _view));
 }
 
 void BoardController::TakeTurn ()

@@ -1,10 +1,9 @@
 #if !defined board_controller_h
 #define board_controller_h
-#include "controller.h"
 #include "board.h"
 #include "console_view.h"
 
-class BoardController : public Controller
+class BoardController
 {
 public:
     BoardController (Board & board, ConsoleView & view);
