@@ -32,13 +32,14 @@ void Board::CheckBoardFull ()
 
 void Board::CheckGameWon (int row, int col)
 {
-    int deltas [3][2] = {
+    int deltas [4][2] = {
         {0,1},
         {1,0},
-        {1,1}
+        {1,1},
+        {-1,1}
     };
 
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 4; ++i)
     {
         int rowDelta = deltas[i][0];
         int colDelta = deltas[i][1];
@@ -47,13 +48,12 @@ void Board::CheckGameWon (int row, int col)
             int j = 1;
             int curRow = row;
             int curCol = col;
-            bool invertRow = false;
-            bool invertCol = false;
+            bool isInverted = false;
 
             for ( ; j < Board::winLength; ++j)
             {
-                curRow += invertRow? -rowDelta : rowDelta;
-                curCol += invertCol? -colDelta : colDelta;
+                curRow += isInverted ? -rowDelta : rowDelta;
+                curCol += isInverted ? -colDelta : colDelta;
                 bool matched = curRow >= 0
                     && curRow < Board::height
                     && curCol >= 0
@@ -76,24 +76,12 @@ void Board::CheckGameWon (int row, int col)
                 --j;
 
                 // Is row non-zero and not inverted? Invert it.
-                if (0 != rowDelta && !invertRow)
+                if (!isInverted)
                 {
-                    invertRow = true;
+                    isInverted = true;
                     continue;
                 }
-                // If row is zero or inverted but column is non-zero and not inverted, invert the column and reset row if needed.
-                else if ((0 == rowDelta || invertRow) && 0 != colDelta && !invertCol)
-                {
-                    invertCol = true;
-
-                    if (invertRow) {
-                        invertRow = false;
-                    }
-
-                    continue;
-                }
-                // If both are inverted, check is done.
-                else if ((0 == rowDelta || invertRow) && (0 == colDelta || invertCol))
+                else
                 {
                     break;
                 }
