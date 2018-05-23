@@ -1,16 +1,16 @@
 #include <iostream>
-#include "console_view.h"
+#include "../../include/view/console_view.h"
 using std::cin;
 using std::cout;
 using std::endl;
 
-ConsoleView::ConsoleView (Board const & board)
+ViewImpl::ViewImpl (Board const & board)
     : _board (board)
 {
     _prev = "";
 }
 
-void ConsoleView::DrawBoard () const
+void ViewImpl::DrawBoard () const
 {
     for (int i = 0; i < Board::height; ++i)
     {
@@ -38,7 +38,7 @@ void ConsoleView::DrawBoard () const
     }
 }
 
-string ConsoleView::PromptForInput() const
+string ViewImpl::PromptForInput() const
 {
     // Ask player for move.
     cout << endl;
@@ -64,7 +64,7 @@ string ConsoleView::PromptForInput() const
     return selected;
 }
 
-void ConsoleView::Update () const
+void ViewImpl::Update () const
 {
     // Reset cursor to start of prompt.
     cout << "\r\b\r";

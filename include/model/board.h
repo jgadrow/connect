@@ -1,7 +1,7 @@
-#if !defined board_h
-#define board_h
+#if !defined include_model_board_h
+#define include_model_board_h
 #include <string>
-#include "subject.h"
+#include "../subject.h"
 using std::string;
 
 class Board : public Subject<string>

@@ -1,5 +1,5 @@
-#if !defined subject_h
-#define subject_h
+#if !defined include_subject_h
+#define include_subject_h
 #include <functional>
 #include <utility>
 #include <map>
