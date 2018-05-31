@@ -1,6 +1,6 @@
-#include "../include/model/board.h"
-#include "../include/controller/board_controller.h"
-#include "../include/view/view.h"
+#include "../../include/generic/model/board.h"
+#include "../../include/generic/controller/board_controller.h"
+#include "../../include/generic/view/view.h"
 
 int main ()
 {

@@ -1,4 +1,3 @@
-bin
-build
-lib
+.buckconfig.local
+buck-out
 

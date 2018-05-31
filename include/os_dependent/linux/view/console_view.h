@@ -1,7 +1,7 @@
 #if !defined include_view_console_view_h
 #define include_view_console_view_h
 #include <string>
-#include "../model/board.h"
+#include "../../../generic/model/board.h"
 using std::string;
 
 class ViewImpl

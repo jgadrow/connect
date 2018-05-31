@@ -2,7 +2,7 @@
 #define include_view_windows_view_h
 #include <string>
 #include <windows.h>
-#include "../model/board.h"
+#include "../../../generic/model/board.h"
 using std::string;
 
 class ViewImpl

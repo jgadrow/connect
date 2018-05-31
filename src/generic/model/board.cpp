@@ -1,4 +1,4 @@
-#include "../../include/model/board.h"
+#include "../../../include/generic/model/board.h"
 
 Board::Board ()
 {

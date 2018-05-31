@@ -1,6 +1,6 @@
 #include <functional>
 #include <string>
-#include "../../include/controller/board_controller.h"
+#include "../../../include/generic/controller/board_controller.h"
 using std::bind;
 
 BoardController::BoardController (Board & board, View & view)

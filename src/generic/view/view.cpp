@@ -1,9 +1,9 @@
-#include "../../include/view/view.h"
+#include "../../../include/generic/view/view.h"
 
 #if !defined _PROJECT_SUPPORT_WINDOWS_
-#include "../../include/view/console_view.h"
+#include "../../../include/os_dependent/linux/view/console_view.h"
 #else
-#include "../../include/view/windows_view.h"
+#include "../../../include/os_dependent/windows/view/windows_view.h"
 #endif
 
 View::View (Board const & board)

@@ -1,7 +1,7 @@
 #include <string>
 #include <tchar.h>
 #include <windowsx.h>
-#include "../../include/view/windows_view.h"
+#include "../../../../include/os_dependent/windows/view/windows_view.h"
 using std::to_string;
 
 ViewImpl::ViewImpl (Board const & board)

@@ -1,0 +1,3 @@
+[alias]
+  connect-linux = //:connect#linux-x86_64
+  connect-windows = //:connect#windows-x86_64

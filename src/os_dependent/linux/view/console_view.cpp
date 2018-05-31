@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../include/view/console_view.h"
+#include "../../../../include/os_dependent/linux/view/console_view.h"
 using std::cin;
 using std::cout;
 using std::endl;
