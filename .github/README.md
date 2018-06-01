@@ -48,7 +48,7 @@ See also the list of [contributors](https://github.com/jgadrow/connect/contribut
 
 ## License
 
-This project, like all Caliginousoft software, is licensed under the Unlicense as a public domain contribution - see the [UNLICENSE.md](UNLICENSE.md) file for details
+This project, like all Caliginousoft software, is licensed under the Unlicense as a public domain contribution - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
