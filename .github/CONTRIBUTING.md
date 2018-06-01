@@ -6,7 +6,13 @@
 
 * **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/jgadrow/connect/issues).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/jgadrow/connect/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/jgadrow/connect/issues/new?template=bug_report.md). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+
+#### **Have a feature you'd like to request?**
+
+* **Ensure the feature was not already requested** by searching on GitHub under [Issues](https://github.com/jgadrow/connect/issues).
+
+* If you're unable to find an open issue addressing the need, [open a new one](https://github.com/jgadrow/connect/issues/new?template=feature_request.md).
 
 #### **Did you write a patch that fixes a bug, adds a feature, or changes an existing one?**
 

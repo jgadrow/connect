@@ -13,8 +13,10 @@ The code includes file for building with [Buck](https://buckbuild.com/ "Buck's W
 Additionally, if you are attempting to build the windows version, you will need to use a command prompt that has all of the developer environment variables set or else manually provide the compiler and linker with all of the relevant paths on your system (I am using a .buckconfig.local file to store my paths just so I don't have to use a non-standard console).
 
 Regardless of whether or not you are using Buck, you will need a c\++17 compatible compiler and linker. Project is currently building in development with:
-Linux: g++ 5.5.0
-Windows: VisualStudio 2017 Community (Compiler version 19.14.26428.1, Linker version 14.14.26428.1)
+
+* Linux: g++ 5.5.0
+
+* Windows: VisualStudio 2017 Community (Compiler version 19.14.26428.1, Linker version 14.14.26428.1)
 
 ### Building with Buck
 
