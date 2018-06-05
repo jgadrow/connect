@@ -1,0 +1,47 @@
+os: Visual Studio 2017
+
+version: '{build}'
+
+environment:
+  matrix:
+    - JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+
+install:
+  - cmd: set GOROOT=
+  - cmd: set PATH=%PATH:C:\go\bin;=%
+  - cmd: set PATH=%PATH:C:\go\bin=%
+  - cmd: set ANT_OPTS=-Xmx512m
+  - cmd: echo IF NOT EXIST %APPVEYOR_BUILD_FOLDER%\..\buck ( > ..\install.cmd
+  - cmd: echo choco install ant -y -f -i >> ..\install.cmd
+  - cmd: echo refreshenv >> ..\install.cmd
+  - cmd: echo python --version >> ..\install.cmd
+  - cmd: echo java -version >> ..\install.cmd
+  - cmd: echo ant -version >> ..\install.cmd
+  - cmd: echo cd .. >> ..\install.cmd
+  - cmd: echo git clone -b v2018.03.26.01 --single-branch --depth 1 https://github.com/facebook/buck.git temp_buck >> ..\install.cmd
+  - cmd: echo cd temp_buck >> ..\install.cmd
+  - cmd: echo ant >> ..\install.cmd
+  - cmd: echo bin\buck build buck >> ..\install.cmd
+  - cmd: echo cd C:\projects\connect >> ..\install.cmd
+  - cmd: echo mkdir %APPVEYOR_BUILD_FOLDER%\..\buck >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\bin %APPVEYOR_BUILD_FOLDER%\..\buck\bin >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\build %APPVEYOR_BUILD_FOLDER%\..\buck\build >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\config %APPVEYOR_BUILD_FOLDER%\..\buck\config >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\programs %APPVEYOR_BUILD_FOLDER%\..\buck\programs >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\python-dsl %APPVEYOR_BUILD_FOLDER%\..\buck\python-dsl >> ..\install.cmd
+  - cmd: echo move ..\temp_buck\third-party %APPVEYOR_BUILD_FOLDER%\..\buck\third-party >> ..\install.cmd
+  - cmd: echo rd /s /q ..\temp_buck >> ..\install.cmd
+  - cmd: echo ) >> ..\install.cmd
+  - cmd: ..\install.cmd
+
+before_build:
+  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
+
+# to disable automatic builds by MsBuild
+build: off
+
+build_script:
+  - ..\buck\bin\buck build connect-windows
+
+cache:
+  - ..\buck

@@ -1,6 +1,7 @@
 # Caliginousoft Connect
 
 [![Build Status](https://travis-ci.org/jgadrow/connect.svg?branch=master)](https://travis-ci.org/jgadrow/connect)
+[![Build status](https://ci.appveyor.com/api/projects/status/tge1i8kh84f2le58?svg=true)](https://ci.appveyor.com/project/jgadrow/connect)
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 This is a simple cross-platform connect game. The intent of this is to mostly brush up on my C++. However, I also will be iterating on this program over time as a demonstration to potential employers of my abilities.
