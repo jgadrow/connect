@@ -4,7 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/tge1i8kh84f2le58?svg=true)](https://ci.appveyor.com/project/jgadrow/connect)
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-This is a simple cross-platform connect game. The intent of this is to mostly brush up on my C++. However, I also will be iterating on this program over time as a demonstration to potential employers of my abilities.
+This is a simple cross-platform connect game. The intent of this is to mostly brush up on my C++. This project is just a playground for testing out ideas. Because it is not really intended to be "used" by anyone, I'm not going to worry about unit testing or squashing all of the bugs. For example, there's a bug that allows you to replace your opponent's marker with your own if the column is full.
 
 ## Getting Started
 
